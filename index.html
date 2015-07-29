@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Running Cost Calculator</title>
+
+	<script src="libs/jquery-2.1.1.min.js"></script>
+	<script src="libs/angular.min.js"></script>
+	<script src="libs/angular-ui-router.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="TrueRunningCosts">
+	<div class="container well">
+		<div ui-view></div>
+	</div>
+</body>
+
+<script src="app/app.js"></script>
+<script src="app/main/main.controller.js"></script>
+<script src="app/shared/services/storage_service.js"></script>
+<script src="app/shared/directives/item-renderer.directive.js"></script>
+
+</html>
