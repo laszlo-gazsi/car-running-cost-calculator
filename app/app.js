@@ -13,11 +13,6 @@
 				url: '/',
 				templateUrl: './app/main/main.template.html',
 				controller: 'MainController'
-			})
-			.state('view',{
-				url: '/view',
-				templateUrl: './app/view/view.template.html',
-				controller: 'MainController'
 			});
 	}
 	

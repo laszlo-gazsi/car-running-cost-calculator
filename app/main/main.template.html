@@ -1,80 +1,75 @@
 <form class="form-horizontal">
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Initial price</label>
-		<div class="col-sm-10">
-			<input ng-model="initialPrice" type="number" class="form-control">
+	<fieldset>
+		<legend class="scheduler-border">Price</legend>
+		<div class="form-group">
+			<label class="col-sm-3 control-label">Initial price</label>
+			<div class="col-sm-3">
+				<input ng-model="car.initialPrice" type="number" class="form-control">
+			</div>
+			<label class="col-sm-3 control-label">Could be sold for</label>
+			<div class="col-sm-3">
+				<input ng-model="car.currentPrice" type="number" class="form-control">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Years of usage</label>
-		<div class="col-sm-10">
-			<input ng-model="yearsOfUsage" type="number" class="form-control">
+	</fieldset>
+	
+	<fieldset>
+		<legend class="scheduler-border">Usage</legend>
+		<div class="form-group">
+			<label class="col-sm-3 control-label">Years of usage</label>
+			<div class="col-sm-3">
+				<input ng-model="car.yearsOfUsage" type="number" class="form-control">
+			</div>
+			<label class="col-sm-3 control-label">Average KMs/year</label>
+			<div class="col-sm-3">
+				<input ng-model="car.avgKMsPerYear" type="number" class="form-control">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Could be sold for</label>
-		<div class="col-sm-10">
-			<input ng-model="currentPrice" type="number" class="form-control">
+	</fieldset>
+	<fieldset>
+		<legend class="scheduler-border">Fuel</legend>
+		<label class="col-sm-3 control-label">Average fuel consuption/100km</label>
+		<div class="col-sm-3">
+			<input ng-model="car.avgFuelConsumption" type="number" class="form-control">
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Average KMs/year</label>
-		<div class="col-sm-10">
-			<input ng-model="avgKMsPerYear" type="number" class="form-control">
+		<div class="form-group">
+			<label class="col-sm-3 control-label">Average fuel price</label>
+			<div class="col-sm-3">
+				<input ng-model="car.avgFuelPrice" type="number" class="form-control">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Average fuel price</label>
-		<div class="col-sm-10">
-			<input ng-model="avgFuelPrice" type="number" class="form-control">
+	</fieldset>
+	<fieldset>
+		<legend class="scheduler-border">Average costs/year</legend>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Insurrance</label>
+			<div class="col-sm-2">
+				<input ng-model="car.avgInsurranceCost" type="number" class="form-control">
+			</div>
+			<label class="col-sm-2 control-label">Revision</label>
+			<div class="col-sm-2">
+				<input ng-model="car.avgRevisionCost" type="number" class="form-control">
+			</div>
+			<label class="col-sm-2 control-label">Taxes</label>
+			<div class="col-sm-2">
+				<input ng-model="car.yearlyRecurrentTaxes" type="number" class="form-control">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Average fuel consuption/100km</label>
-		<div class="col-sm-10">
-			<input ng-model="avgFuelConsumption" type="number" class="form-control">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Average insurrance cost/year</label>
-		<div class="col-sm-10">
-			<input ng-model="avgInsurranceCost" type="number" class="form-control">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Average revision cost/year</label>
-		<div class="col-sm-10">
-			<input ng-model="avgRevisionCost" type="number" class="form-control">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Yearly recurrent taxes</label>
-		<div class="col-sm-10">
-			<input ng-model="yearlyRecurrentTaxes" type="number" class="form-control">
-		</div>
-	</div>
-	<div class="form-group">
+	</fieldset>
+<!-- 	<div class="form-group">
 		<label class="col-sm-2 control-label">How much extra did you spend on it?</label>
-		<div class="col-sm-10">
+		<div class="col-sm-3">
 			<input ng-model="extraCosts" type="number" class="form-control">
 		</div>
-	</div>	
+	</div>	 -->
+	<fieldset>
+	<legend class="scheduler-border">Report</legend>
+	</fieldset>
 	<div class="form-group">
-		<label class="col-sm-2 control-label">Total costs</label>
-		<div class="col-sm-10">
-			<input disabled type="text" class="form-control" value="{{totalCosts()}}">
-		</div>
-	</div>	
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Costs/year</label>
-		<div class="col-sm-10">
-			<input disabledtype="text" class="form-control" value="{{costsPerYear()}}">
-		</div>
-	</div>	
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Costs/km</label>
-		<div class="col-sm-10">
-			<input disabled type="text" class="form-control" value="{{resultCostPerKm()}}">
-		</div>
+		<span class="col-sm-2"><b>Total costs</b>: </span><span class="col-sm-2 text-right">{{totalCosts()}}</span><br/>
+		<span class="col-sm-2"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{costsPerYear()}}</span><br/>
+		<span class="col-sm-2"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{costsPerMonth()}}</span><br/>
+		<span class="col-sm-2"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{resultCostPerKm()}}</span><br/>
+		<span class="col-sm-2"><b>Total fuel cost</b>: </span><span class="col-sm-2 text-right">{{totalFuelCost()}}</span>
 	</div>	
 </form>

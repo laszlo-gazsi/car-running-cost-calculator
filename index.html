@@ -7,18 +7,14 @@
 	<script src="libs/angular.min.js"></script>
 	<script src="libs/angular-ui-router.min.js"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
 </head>
 <body ng-app="TrueRunningCosts">
-	<div class="container well">
-		<div ui-view></div>
+	<div class="container panel panel-primary">
+		<div class="panel-heading"><h2>Running Costs Calculator</h2></div>
+		<div class="panel-body">
+			<div ui-view></div>
+		</div>
 	</div>
 </body>
 
