@@ -19,31 +19,38 @@
 			yearlyRecurrentTaxes: 0
 		};
 
-		$scope.totalCosts = function() { 
-			var carDevaluation = $scope.car.initialPrice - $scope.car.currentPrice;
-			var taxes = $scope.car.yearsOfUsage * $scope.car.yearlyRecurrentTaxes;
-
-			return $scope.toDisplayNumber(carDevaluation + taxes); 
-		};
-
-		$scope.totalFuelCost = function(){
-			var fuelCostPer100Km = $scope.car.avgFuelPrice * $scope.car.avgFuelConsumption;
-			var totalKms = $scope.car.yearsOfUsage * $scope.car.avgKMsPerYear;
-			return $scope.toDisplayNumber(fuelCostPer100Km * totalKms / 100);
+		$scope.getTotalKilometers = function(){
+			return $scope.car.yearsOfUsage * $scope.car.avgKMsPerYear;
 		}
 
-		$scope.costsPerYear = function() {
-			return $scope.toDisplayNumber($scope.totalCosts() / $scope.car.yearsOfUsage);
-		};
+		$scope.getTotalYears = function(){
+			return $scope.car.yearsOfUsage;
+		}
 
-		$scope.costsPerMonth = function() {
-			return $scope.toDisplayNumber($scope.costsPerYear() / 12);
-		};
+		$scope.getTotalMonths = function(){
+			return $scope.car.yearsOfUsage * 12;
+		}
 
-		$scope.resultCostPerKm = function() { 
-			return $scope.toDisplayNumber($scope.costsPerYear() / $scope.car.avgKMsPerYear);
-		};
+		$scope.getDevaluation = function(){
+			return $scope.car.initialPrice - $scope.car.currentPrice;
+		}
 
+		$scope.getTotalFuelCost = function(){
+			var fuelCostPer100Km = $scope.car.avgFuelPrice * $scope.car.avgFuelConsumption;
+			return fuelCostPer100Km * $scope.getTotalKilometers() / 100;
+		}
+
+		$scope.getTotalTaxes = function(){
+			return ($scope.car.avgRevisionCost + 
+				$scope.car.avgInsurranceCost + 
+				$scope.car.yearlyRecurrentTaxes) * $scope.getTotalYears();
+		}
+
+		$scope.getTotalCosts = function() { 
+			return $scope.getDevaluation() +
+				$scope.getTotalFuelCost() +
+				$scope.getTotalTaxes();
+		};
 
 		// utils
 		$scope.toDisplayNumber = function(number){

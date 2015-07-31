@@ -56,20 +56,41 @@
 			</div>
 		</div>
 	</fieldset>
-<!-- 	<div class="form-group">
-		<label class="col-sm-2 control-label">How much extra did you spend on it?</label>
-		<div class="col-sm-3">
-			<input ng-model="extraCosts" type="number" class="form-control">
+	<fieldset class="col-sm-3">
+		<legend class="scheduler-border">Devaluation</legend>
+		<div>
+			<span class="col-sm-5"><b>Total</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getDevaluation())}}</span><br/>
+			<span class="col-sm-5"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getDevaluation()/getTotalYears())}}</span><br/>
+			<span class="col-sm-5"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getDevaluation()/getTotalMonths())}}</span><br/>
+			<span class="col-sm-5"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getDevaluation()/getTotalKilometers())}}</span>
 		</div>
-	</div>	 -->
-	<fieldset>
-	<legend class="scheduler-border">Report</legend>
 	</fieldset>
-	<div class="form-group">
-		<span class="col-sm-2"><b>Total costs</b>: </span><span class="col-sm-2 text-right">{{totalCosts()}}</span><br/>
-		<span class="col-sm-2"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{costsPerYear()}}</span><br/>
-		<span class="col-sm-2"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{costsPerMonth()}}</span><br/>
-		<span class="col-sm-2"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{resultCostPerKm()}}</span><br/>
-		<span class="col-sm-2"><b>Total fuel cost</b>: </span><span class="col-sm-2 text-right">{{totalFuelCost()}}</span>
-	</div>	
+	<fieldset class="col-sm-3">
+		<legend class="scheduler-border">Fuel</legend>
+		<div>
+			<span class="col-sm-5"><b>Total</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalFuelCost())}}</span><br/>
+			<span class="col-sm-5"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalFuelCost()/getTotalYears())}}</span><br/>
+			<span class="col-sm-5"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalFuelCost()/getTotalMonths())}}</span><br/>
+			<span class="col-sm-5"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalFuelCost()/getTotalKilometers())}}</span>
+		</div>
+	</fieldset>
+		<fieldset class="col-sm-3">
+		<legend class="scheduler-border">Taxes and services</legend>
+		<div>
+			<span class="col-sm-5"><b>Total</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalTaxes())}}</span><br/>
+			<span class="col-sm-5"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalTaxes()/getTotalYears())}}</span><br/>
+			<span class="col-sm-5"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalTaxes()/getTotalMonths())}}</span><br/>
+			<span class="col-sm-5"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalTaxes()/getTotalKilometers())}}</span>
+		</div>
+	</fieldset>
+	<fieldset class="col-sm-3">
+		<legend class="scheduler-border">Total</legend>
+		<div>
+			<span class="col-sm-5"><b>Total</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalCosts())}}</span><br/>
+			<span class="col-sm-5"><b>Yearly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalCosts()/getTotalYears())}}</span><br/>
+			<span class="col-sm-5"><b>Monthly</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalCosts()/getTotalMonths())}}</span><br/>
+			<span class="col-sm-5"><b>Per KM</b>: </span><span class="col-sm-2 text-right">{{toDisplayNumber(getTotalCosts()/getTotalKilometers())}}</span>
+		</div>
+	</fieldset>
+	
 </form>
