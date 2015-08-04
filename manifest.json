@@ -1,5 +1,8 @@
 {
   "name": "Car Running Costs Calculator",
+  "permissions": [
+    "storage"
+  ],
   "description": "A simple tool that help you calculate how much your car costs you in each year, month or per kilometer.",
   "version": "0.2.1",
   "manifest_version": 2,

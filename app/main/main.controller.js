@@ -2,22 +2,9 @@
 	angular.module('TrueRunningCosts').
 	controller('MainController', MainController);
 	
-	MainController.$inject = ['$scope'];
+	MainController.$inject = ['$scope', 'StorageService'];
 	
-	function MainController($scope){
-
-		$scope.car = {
-			name: '',
-			initialPrice: 0,
-			yearsOfUsage: 0,
-			currentPrice: 0,
-			avgKMsPerYear: 0,
-			avgFuelPrice: 0,
-			avgFuelConsumption: 0,
-			avgInsurranceCost: 0, 
-			avgRevisionCost: 0,
-			yearlyRecurrentTaxes: 0
-		};
+	function MainController($scope, StorageService){
 
 		$scope.getTotalKilometers = function(){
 			return $scope.car.yearsOfUsage * $scope.car.avgKMsPerYear;
@@ -48,9 +35,28 @@
 
 		$scope.getTotalCosts = function() { 
 			return $scope.getDevaluation() +
-				$scope.getTotalFuelCost() +
-				$scope.getTotalTaxes();
-		};
+			$scope.getTotalFuelCost() +
+			$scope.getTotalTaxes();
+		}
+
+		$scope.resetData = function(){
+			$scope.car = $scope.createEmptyCarSheet();
+		}
+
+		$scope.createEmptyCarSheet = function(){
+			return {
+				name: '',
+				initialPrice: 0,
+				yearsOfUsage: 0,
+				currentPrice: 0,
+				avgKMsPerYear: 0,
+				avgFuelPrice: 0,
+				avgFuelConsumption: 0,
+				avgInsurranceCost: 0, 
+				avgRevisionCost: 0,
+				yearlyRecurrentTaxes: 0
+			}
+		}
 
 		// utils
 		$scope.toDisplayNumber = function(number){
@@ -62,5 +68,20 @@
 
 			return result;
 		}
+
+		$scope.loadData = function(){
+			StorageService.loadData("car", function(data){
+				$scope.$apply(function(){
+					$scope.car = data.car;
+				});
+			});
+		}
+
+		$scope.saveData = function(){
+			StorageService.saveData("car", $scope.car, function(){});
+		}
+
+		$scope.car = $scope.createEmptyCarSheet();
+		$scope.loadData();
 	}
 })();
