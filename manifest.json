@@ -4,7 +4,7 @@
     "storage"
   ],
   "description": "A simple tool that help you calculate how much your car costs you in each year, month or per kilometer.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "manifest_version": 2,
   "app": {
     "background": {
